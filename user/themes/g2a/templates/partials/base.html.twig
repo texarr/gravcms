@@ -16,7 +16,9 @@
     {% block stylesheets %}
         {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
         {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 98) %}
+        {% do assets.addCss('theme://css/bootstrap.min.css', 98) %}
+        {% do assets.addCss('theme://css/custom.css', 97) %}
+        {% do assets.addCss('theme://css/custom2.css', 96) %}
     {% endblock %}
     {{ assets.css() }}
 
