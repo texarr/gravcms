@@ -1,0 +1,29 @@
+.main-nav {
+    padding-right: 35px;
+
+    ul {
+        border-top: 1px solid $brand-primary-color;
+        text-align: left;
+
+        li {
+            -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+
+            &.selected {
+                border-top: 3px solid $brand-primary-color;
+
+                > a {
+                    background: inherit;
+                    color: lighten($font-color-primary, 10%);
+                    font-weight: 500;
+                }
+            }
+
+            a {
+                background: inherit;
+                text-transform: uppercase;
+                color: $font-color-primary;
+            }
+        }
+    }
+}
