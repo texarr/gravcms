@@ -1,6 +1,7 @@
 ---
 title: about-us
 published: true
+visible: true
 ---
 
 # designing
