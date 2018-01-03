@@ -1,3 +1,15 @@
-* {
+*, .footer{
     background: $background-color-main;
+    color: $font-color-primary;
+}
+
+h1, h2, h3, h4, h5 {
+    color: $font-color-secondary;
+}
+
+h1, .h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 0;
+    line-height: 0.85em;
 }

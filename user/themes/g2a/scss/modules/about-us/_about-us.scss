@@ -1,0 +1,28 @@
+.about-us {
+
+    &__logo {
+        position: absolute;
+        left: 0;
+        top: 10px;
+    }
+
+    &__description {
+        padding-top: 150px;
+    }
+
+    &__content {
+        h1 {
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-top: 30px;
+        }
+    }
+
+    &__bigimage {
+        img {
+            width: 100%;
+        }
+    }
+}

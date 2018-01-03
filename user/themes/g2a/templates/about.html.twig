@@ -7,9 +7,9 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-sm-4 about-us__content">
+        <div class="col-lg-4 about-us__content">
             <div class="about-us__logo">
-                <img src="" alt="monad rock">
+                <img src="{{ theme_url }}/images/monad_logo.jpg" alt="monad rock">
             </div>
 
             <div class="about-us__description">
@@ -17,8 +17,8 @@
             </div>
         </div>
 
-        <div class="col-sm-8 about-us__bigimage">
-
+        <div class="col-lg-8 about-us__bigimage">
+            <img src="{{ theme_url }}/images/about-us_bigimage.jpg" alt="our team">
         </div>
     </div>
 
@@ -31,5 +31,9 @@
             {% endblock %}
         </div>
     </div>
+
+{% endblock %}
+
+{% block footer %}
 
 {% endblock %}
