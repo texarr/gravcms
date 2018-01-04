@@ -113,7 +113,7 @@ errors:
   log: true                                      # Log errors to /logs folder
 
 debugger:
-  enabled: false                                 # Enable Grav debugger and following settings
+  enabled: true                                  # Enable Grav debugger and following settings
   shutdown:
     close_connection: true                       # Close the connection before calling onShutdown(). false for debugging
 
