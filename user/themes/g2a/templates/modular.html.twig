@@ -1,0 +1,72 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block javascripts %}
+    {% if show_onpage_menu %}
+        {% do assets.add('theme://js/singlePageNav.min.js') %}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block bottom %}
+    {{ parent() }}
+    {% if show_onpage_menu %}
+        <script>
+        // singlePageNav initialization & configuration
+        $('#navbar').singlePageNav({
+            offset: $('#header').outerHeight(),
+            filter: ':not(.external)',
+            updateHash: true,
+            currentClass: 'active'
+        });
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-4 modular__content">
+            <div class="modular__logo">
+                <img src="{{ theme_url }}/images/monad_logo.jpg" alt="monad rock">
+            </div>
+
+            <div class="modular__description">
+                {% for module in page.collection() %}
+                    <div class="offer" data-offer="{{ _self.pageLinkName(module.menu) }}">
+                        <div class="btn">
+                            {{ module.title }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-lg-8 modular__content">
+            {% for module in page.collection() %}
+                <div class="offer__description" data-offer_desc="{{ _self.pageLinkName(module.menu) }}">
+                    {{ module.content }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% block header_navigation %}
+            <nav class="main-nav">
+                {% include 'partials/navigation.html.twig' %}
+            </nav>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
