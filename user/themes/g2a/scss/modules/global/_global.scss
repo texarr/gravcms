@@ -18,3 +18,13 @@ h1, .h1 {
     margin: 0 2rem;
     margin-right: 0;
 }
+
+.btn {
+    background: $btn-background-primary;
+    border-radius: 0;
+    padding: 12px 20px;
+
+    &--active {
+        background: $brand-primary-color;
+    }
+}

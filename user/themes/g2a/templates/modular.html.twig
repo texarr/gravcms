@@ -6,6 +6,7 @@
 {% block javascripts %}
     {% if show_onpage_menu %}
         {% do assets.add('theme://js/singlePageNav.min.js') %}
+        {% do assets.add('theme://js/offersChoice.js') %}
     {% endif %}
     {{ parent() }}
 {% endblock %}
@@ -38,11 +39,18 @@
             </div>
 
             <div class="modular__description">
+                <h1>Jobs</h1>
                 {% for module in page.collection() %}
                     <div class="offer" data-offer="{{ _self.pageLinkName(module.menu) }}">
+                        {% if loop.index == 1 %}
+                        <div class="btn btn--active">
+                            {{ module.title }}
+                        </div>
+                        {% else %}
                         <div class="btn">
                             {{ module.title }}
                         </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
@@ -50,9 +58,16 @@
 
         <div class="col-lg-8 modular__content">
             {% for module in page.collection() %}
-                <div class="offer__description" data-offer_desc="{{ _self.pageLinkName(module.menu) }}">
-                    {{ module.content }}
-                </div>
+                {% if loop.index == 1 %}
+                    <div class="offer__description" data-offer_desc="{{ _self.pageLinkName(module.menu) }}">
+                        {{ module.content }}
+                    </div>
+                {% else %}
+                    <div class="offer__description hidden" data-offer_desc="{{ _self.pageLinkName(module.menu) }}">
+                        {{ module.content }}
+                    </div>
+                {% endif %}
+
             {% endfor %}
         </div>
     </div>
